@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Hapus Warga</title>
+</head>
+<body>
+    <h1>Konfirmasi Hapus</h1>
+    <p>Apakah Anda yakin ingin menghapus data: <strong>{{ object.nama_lengkap }}</strong>?</p>
+
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Ya, Hapus</button>
+        <a href="{% url 'warga:warga-list' %}">Batal</a>
+    </form>
+</body>
+</html>

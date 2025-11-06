@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>{% if object %}Edit{% else %}Tambah{% endif %} Warga</title>
+</head>
+<body>
+    <h1>{% if object %}Edit{% else %}Tambah{% endif %} Warga</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Simpan</button>
+        <a href="{% url 'warga:warga-list' %}">Batal</a>
+    </form>
+</body>
+</html>
