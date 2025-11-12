@@ -8,16 +8,19 @@
     <h1>Daftar Semua Pengaduan Warga</h1>
 
     <ul>
-        {% for aduan in pengaduan_list %}
-            <li>
-                <strong>{{ aduan.judul }}</strong> — Dilaporkan oleh: {{ aduan.pelapor.nama_lengkap }}
-                <br>Status: {{ aduan.get_status_display }}
-                <p>{{ aduan.deskripsi }}</p>
-            </li>
-        {% empty %}
-            <li>Tidak ada pengaduan yang terdaftar.</li>
-        {% endfor %}
+{% for aduan in pengaduan_list %}
+    <li>
+        <strong>{{ aduan.judul }}</strong> — Dilaporkan oleh: {{ aduan.pelapor.nama_lengkap }}
+        <br>Status: {{ aduan.get_status_display }}
+        <p>{{ aduan.deskripsi }}</p>
+        [<a href="{% url 'warga:pengaduan-edit' aduan.pk %}">Edit</a>]
+        [<a href="{% url 'warga:pengaduan-hapus' aduan.pk %}">Hapus</a>]
+    </li>
+    {% empty %}
+    <li>Tidak ada pengaduan yang terdaftar.</li>
+    {% endfor %}
     </ul>
+
 
     <p><a href="{% url 'warga:warga-list' %}">← Kembali ke Daftar Warga</a></p>
     <h1>Daftar Semua Pengaduan</h1>

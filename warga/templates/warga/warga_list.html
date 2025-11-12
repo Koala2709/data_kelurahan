@@ -6,7 +6,7 @@
 </head>
 <body>
     <h1>Daftar Warga</h1>
-    <p><a href="{% url 'warga:warga-add' %}">+ Tambah Warga Baru</a></p>
+    <p><a href="{% url 'warga:warga-tambah' %}">Tambah Warga Baru</a></p>
 
     <ul>
     {% for warga in object_list %}
@@ -14,7 +14,7 @@
             <a href="{% url 'warga:warga-detail' warga.pk %}">{{ warga.nama_lengkap }}</a>
             — NIK: {{ warga.nik }}
             [<a href="{% url 'warga:warga-edit' warga.pk %}">Edit</a>]
-            [<a href="{% url 'warga:warga-delete' warga.pk %}">Hapus</a>]
+            [<a href="{% url 'warga:warga-hapus' warga.pk %}">Hapus</a>]
         </li>
     {% empty %}
         <li>Belum ada data warga.</li>

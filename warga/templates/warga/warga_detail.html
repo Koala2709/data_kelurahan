@@ -1,5 +1,10 @@
 <hr>
 <h2>Daftar Pengaduan oleh {{ object.nama_lengkap }}</h2>
+<h1>Detail Warga: {{ object.nama_lengkap }}</h1>
+
+<a href="{% url 'warga:warga-edit' object.pk %}">Edit Data</a> |
+<a href="{% url 'warga:warga-hapus' object.pk %}">Hapus Data</a>
+<hr>
 
 <ul>
     {% for aduan in object.pengaduan.all %}
