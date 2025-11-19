@@ -2,6 +2,11 @@ from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 from .models import Warga, Pengaduan
 from .forms import WargaForm, PengaduanForm
+from rest_framework.generics import ListAPIView
+from .serializer import WargaSerializer
+from rest_framework.generics import RetrieveAPIView
+
+
 
 class WargaListView(ListView):
     model = Warga
@@ -50,3 +55,10 @@ class PengaduanListView(ListView):
     template_name = 'warga/pengaduan_list.html'
     context_object_name = 'pengaduan_list'
 
+class WargaListAPIView(ListAPIView):
+    queryset = Warga.objects.all()
+    serializer_class = WargaSerializer
+
+class WargaDetailAPIView(RetrieveAPIView):
+    queryset = Warga.objects.all()
+    serializer_class = WargaSerializer
